@@ -1,10 +1,18 @@
 import Configs.baseURL
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -64,10 +72,14 @@ fun BirdItem(imageUrl: String) {
         contentAlignment = Alignment.Center,
         contentScale = ContentScale.Crop,
         contentDescription = "",
+        animationSpec = tween(
+            easing = LinearOutSlowInEasing,
+            delayMillis = 350,
+            durationMillis = 500
+        ),
         onLoading = {
             CircularProgressIndicator(
-                modifier = Modifier
-                    .align(Alignment.Center)
+                modifier = Modifier.fillMaxSize(0.2f).aspectRatio(1f)
             )
         }
     )
