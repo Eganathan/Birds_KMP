@@ -1,4 +1,5 @@
-package com.eganathan.mybirdapp
+package com.eganathan.just_birds
+
 
 import App
 import android.os.Bundle

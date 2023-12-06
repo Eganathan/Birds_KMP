@@ -66,7 +66,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.eganathan.mybirdapp"
+    namespace = "dev.eknath.just_birds"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -74,7 +74,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "com.eganathan.mybirdapp"
+        applicationId = "dev.eknath.just_birds"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -111,7 +111,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.eganathan.mybirdapp"
+            packageName = "dev.eknath.just_birds"
             packageVersion = "1.0.0"
         }
     }
