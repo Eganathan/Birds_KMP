@@ -1,3 +1,4 @@
+import Configs.baseURL
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -15,8 +16,6 @@ class BirdsViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow(BirdsViewUIState())
     val uiState = _uiState.asStateFlow()
-
-    val apiURL = "https://sebi.io/demo-image-api/pictures.json"
     val httpClient: HttpClient = HttpClient() {
         install(ContentNegotiation) {
             json()
@@ -32,7 +31,7 @@ class BirdsViewModel : ViewModel() {
         }
     }
 
-    private suspend fun getImages(): List<BirdImage> = httpClient.get(apiURL).body()
+    private suspend fun getImages(): List<BirdImage> = httpClient.get(baseURL.plus("pictures.json")).body()
 
 
     override fun onCleared() {
